@@ -10,13 +10,13 @@ The Big Bad Wolf has entered the ring. He can HUFF, he can puff, but can he blow
 
 Here is the original image.
 
-[BigBad](BigBad.png)
+![BigBad](BigBad.png)
 
 Given the hint and the content of the file, we can deduce that this is a [Huffman Coding](https://en.wikipedia.org/wiki/Huffman_coding) problem. We can expect the flag to be hidden in a binary sequence somewhere in the image.
 
 Using stegsolve we were able to find a message hidden on the left side of the file in the red, green, and blue channels.
 
-[Red LSB](red0.bmp)
+![Red LSB](red0.bmp)
 
 I wrote a quick python program to extract the LSB of the red channel from the image.
 
