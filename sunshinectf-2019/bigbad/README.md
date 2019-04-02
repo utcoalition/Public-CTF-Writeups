@@ -37,6 +37,6 @@ and obtained the binary sequence
 0000010100101101000010011010001010100011010101001100101000101100110001110111111001100111011111000000111100010010110011001111101010001100011111011111111...
 ```
 
-if we use the given Huffman tree to decode the image we get the flag.
+if we use the given Huffman tree to decode the sequence we get the flag.
 
 #### Flag: sun{sh0ulda_u5ed_br1cks_1001130519}
