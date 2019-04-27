@@ -53,7 +53,7 @@ I said I like it like that!
 I like two integers that I'm thinking of (space separated): 
 ```
 
-Now we fire up `gdb` and take a look at what numbers where looking for. Typing disas main disassembles the main function which is the starting point of the executable.
+Now we fire up `gdb` and take a look at what numbers we're looking for. Typing disas main disassembles the main function which is the starting point of the executable.
 ```
 gdb ./i_like_it 
 (gdb) disas main
